@@ -5,4 +5,5 @@
     <string name="open_text">PlayToy App</string>
     <string name="open_button">PUSH TO CONTINUE</string>
     <string name="title_activity_second_activity">second_activity</string>
+    <string name="boardString">Board String</string>
 </resources>

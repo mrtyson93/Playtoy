@@ -21,7 +21,7 @@
 
     <Button
         android:id="@+id/contBtn"
-        android:layout_width="275dp"
+        android:layout_width="275sp"
         android:layout_height="wrap_content"
         android:text="@string/open_button"
         android:textSize = "25sp"
