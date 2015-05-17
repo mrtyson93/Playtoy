@@ -5,7 +5,7 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
     android:background="#ff222222"
-    android:id="@+id/opening">
+    android:id="@+id/opening" >
 
     <TextView
         android:id="@+id/textView1"
@@ -15,9 +15,8 @@
         android:text="@string/open_text"
         android:textColor="#ff0e6e76"
         android:textSize="50sp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="158dp" />
+        android:layout_above="@+id/contBtn"
+        android:layout_alignLeft="@+id/contBtn" />
 
     <Button
         android:id="@+id/contBtn"
@@ -26,8 +25,7 @@
         android:text="@string/open_button"
         android:textSize = "25sp"
         android:textColor = "#ff0d0d0d"
-        android:layout_below="@+id/textView1"
         android:background="#ff575757"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp" />
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
