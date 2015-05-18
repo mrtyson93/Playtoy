@@ -1,5 +1,6 @@
 package com.example.mitchell.playtoy;
 
+import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -24,13 +25,13 @@ public class MainActivity extends ActionBarActivity {
 
         //these make the buttons/textView = the ones from activity_main.xml
         Button open_Btn = (Button) findViewById(R.id.contBtn);
-        final TextView testing = (TextView) findViewById(R.id.textView1);
 
-        //this sets the view to the second activity, should be done with this now
+        //this starts the tic-tac-toe activity
         open_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.activity_second_activity); //sets title to all caps
+                Intent i = new Intent(getApplicationContext(),second_activity.class);
+                startActivity(i);
             }
         });
     }
