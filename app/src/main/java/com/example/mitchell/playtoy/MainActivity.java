@@ -1,18 +1,22 @@
 package com.example.mitchell.playtoy;
 
-import android.content.Intent;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
+import android.app.Dialog;
+import android.view.View.OnClickListener;
+import android.widget.ImageView;
+import android.content.Context;
+
 
 
 public class MainActivity extends ActionBarActivity {
+    final Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,13 +29,34 @@ public class MainActivity extends ActionBarActivity {
 
         //these make the buttons/textView = the ones from activity_main.xml
         Button open_Btn = (Button) findViewById(R.id.contBtn);
+        final TextView testing = (TextView) findViewById(R.id.textView1);
 
-        //this starts the tic-tac-toe activity
+        //this sets the view to the second activity, should be done with this now
         open_Btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),second_activity.class);
-                startActivity(i);
+                //dialog box
+                final Dialog dialog = new Dialog(context);
+                dialog.setContentView(R.layout.dialogbox);
+                dialog.setTitle("Title...");
+
+                // set the custom dialog components - text, image and button
+                TextView text = (TextView) dialog.findViewById(R.id.text);
+                text.setText("Android custom dialog example!");
+                ImageView image = (ImageView) dialog.findViewById(R.id.image);
+
+                Button dialogButton = (Button) dialog.findViewById(R.id.dialogButtonOK);
+                // if button is clicked, close the custom dialog
+                dialogButton.setOnClickListener(new OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        dialog.dismiss();
+                    }
+                });
+
+                dialog.show();
+
+                //setContentView(R.layout.activity_second_activity); //sets title to all caps
             }
         });
     }
