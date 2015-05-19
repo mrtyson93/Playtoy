@@ -10,6 +10,11 @@ import android.view.View;
 import android.view.Window;
 import android.widget.Button;
 
+//TODO running score of winners
+//TODO alternate who starts first
+//TODO make it clear who's turn it is
+//TODO display for when there is a winner instead of restarting app
+//TODO human vs cpu popup when tic tac toe button is pressed(Brown)
 
 public class second_activity extends ActionBarActivity {
 
