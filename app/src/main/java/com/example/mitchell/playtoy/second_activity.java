@@ -13,17 +13,18 @@ import android.widget.Button;
 
 public class second_activity extends ActionBarActivity {
 
-    public void setChar(Button modifying, int count){
-        if(count%2 == 0 ){
-            modifying.setTextColor(Color.parseColor("#D51405"));
-            modifying.setText("X");
-        }
-        else{
-            modifying.setTextColor(Color.parseColor("#ffffff"));
-            modifying.setText("O");
+    public void setChar(Button modifying, int[] count, int xCor, int yCor, TTTBoard Board){
+
+        //only sets tile as played if it hasn't been played before
+        if(Board.isEmpty(xCor, yCor) && count[0] < 9){
+            Board.setChar(modifying, count[0], xCor, yCor);
+            count[0]++;
         }
     }
-    int count = 0;
+
+    //used to keep track of moves played, never greater than 9
+    int[] count = {0};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,83 +43,70 @@ public class second_activity extends ActionBarActivity {
         final Button bottomMiddle = (Button) findViewById(R.id.BottomMiddle);
         final Button bottomRight = (Button) findViewById(R.id.BottomRight);
 
+        //this is the actual played game board used for calculations
+        final TTTBoard Board = new TTTBoard();
+
+        //same thing for all nine tiles, calles setChar if clicked
         topLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setChar(topLeft, count);
-                count++;
+                setChar(topLeft, count, 0, 0, Board);
             }
         });
 
         topMiddle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setChar(topMiddle, count);
-                count++;
-
+                setChar(topMiddle, count, 1, 0, Board);
             }
         });
 
         topRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setChar(topRight, count);
-                count++;
-
+                setChar(topRight, count, 2, 0, Board);
             }
         });
 
         centerLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setChar(centerLeft, count);
-                count++;
-
+                setChar(centerLeft, count, 0, 1, Board);
             }
         });
 
         centerMiddle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setChar(centerMiddle, count);
-                count++;
-
+                setChar(centerMiddle, count, 1, 1, Board);
             }
         });
 
         centerRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setChar(centerRight, count);
-                count++;
-
+                setChar(centerRight, count, 2, 1, Board);
             }
         });
 
         bottomeLeft.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setChar(bottomeLeft, count);
-                count++;
-
+                setChar(bottomeLeft, count, 0, 2, Board);
             }
         });
 
         bottomMiddle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setChar(bottomMiddle, count);
-                count++;
-
+                setChar(bottomMiddle, count, 1, 2, Board);
             }
         });
 
         bottomRight.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setChar(bottomRight, count);
-                count++;
-
+                setChar(bottomRight, count, 2, 2, Board);
             }
         });
     }
