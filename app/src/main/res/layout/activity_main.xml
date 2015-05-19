@@ -5,7 +5,8 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
     android:background="#ff222222"
-    android:id="@+id/opening" >
+    android:id="@+id/opening"
+    tools:ignore="Overdraw">
 
     <TextView
         android:id="@+id/textView1"
@@ -16,7 +17,8 @@
         android:textColor="#ff0e6e76"
         android:textSize="50sp"
         android:layout_above="@+id/contBtn"
-        android:layout_alignLeft="@+id/contBtn" />
+        android:layout_alignStart="@+id/contBtn"
+        android:layout_alignLeft="@+id/contBtn"/>
 
     <Button
         android:id="@+id/contBtn"

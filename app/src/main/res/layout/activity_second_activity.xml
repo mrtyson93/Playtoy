@@ -9,7 +9,8 @@
     android:background="#ff222222"
     android:id="@+id/op"
     android:screenOrientation="portrait"
-    tools:context="com.example.mitchell.playtoy.second_activity">
+    tools:context="com.example.mitchell.playtoy.second_activity"
+    tools:ignore="Overdraw">
 
 
     <TextView

@@ -6,12 +6,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.Window;
 import android.widget.Button;
-import android.widget.TextView;
 
 
+@SuppressWarnings("deprecation")
 public class MainActivity extends ActionBarActivity {
 
     @Override
@@ -21,18 +19,16 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.activity_main);
 
         ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
         actionBar.hide();
 
         //these make the buttons/textView = the ones from activity_main.xml
         Button open_Btn = (Button) findViewById(R.id.contBtn);
 
         //this starts the tic-tac-toe activity
-        open_Btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(),second_activity.class);
-                startActivity(i);
-            }
+        open_Btn.setOnClickListener(v -> {
+            Intent i = new Intent(getApplicationContext(),second_activity.class);
+            startActivity(i);
         });
     }
 
