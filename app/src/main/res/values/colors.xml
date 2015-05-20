@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="secondary">#ff0e6e76</color>
+    <color name="backGround">#ff222222</color>
+    <color name="play1">#D51405</color>
+    <color name="play2">#ffffff</color>
+    <color name="Gray">#ff575757</color>
+</resources>

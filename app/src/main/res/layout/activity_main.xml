@@ -4,8 +4,9 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity"
-    android:background="#ff222222"
-    android:id="@+id/opening" >
+    android:background="@color/backGround"
+    android:id="@+id/opening"
+    tools:ignore="Overdraw">
 
     <TextView
         android:id="@+id/textView1"
@@ -13,10 +14,11 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/open_text"
-        android:textColor="#ff0e6e76"
+        android:textColor="@color/secondary"
         android:textSize="50sp"
         android:layout_above="@+id/contBtn"
-        android:layout_alignLeft="@+id/contBtn" />
+        android:layout_alignStart="@+id/contBtn"
+        android:layout_alignLeft="@+id/contBtn"/>
 
     <Button
         android:id="@+id/contBtn"
@@ -25,7 +27,7 @@
         android:text="@string/tictactoe"
         android:textSize = "25sp"
         android:textColor = "#ff0d0d0d"
-        android:background="#ff575757"
+        android:background="@color/Gray"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 </RelativeLayout>

@@ -1,35 +1,58 @@
 package com.example.mitchell.playtoy;
 
-import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.view.Window;
 import android.widget.Button;
+import android.widget.TextView;
 
+import org.w3c.dom.Text;
 
+//TODO running score of winners
+//TODO alternate who starts first
+//TODO make it clear who's turn it is
+//TODO display for when there is a winner instead of restarting app
+//TODO human vs cpu popup when tic tac toe button is pressed(Brown)
+
+@SuppressWarnings("deprecation")
 public class second_activity extends ActionBarActivity {
 
-    public void setChar(Button modifying, int count){
-        if(count%2 == 0 ){
-            modifying.setTextColor(Color.parseColor("#D51405"));
-            modifying.setText("X");
-        }
-        else{
-            modifying.setTextColor(Color.parseColor("#ffffff"));
-            modifying.setText("O");
+    private void setChar(Button modifying, int[] count, int xCor, int yCor, TTTBoard Board){
+
+        //only sets tile as played if it hasn't been played before
+        if(Board.isEmpty(xCor, yCor) && count[0] < 9){
+            Board.setChar(modifying, count[0], xCor, yCor);
+
+            //this alternates the highlight for whose turn it is
+            if(count[0]%2 == 0){
+                findViewById(R.id.textView2).setBackgroundColor(0xff222222);
+                findViewById(R.id.textView5).setBackgroundColor(0xff222222);
+                findViewById(R.id.textView4).setBackgroundColor(0xff575757);
+                findViewById(R.id.textView3).setBackgroundColor(0xff575757);
+            }
+            else{
+                findViewById(R.id.textView4).setBackgroundColor(0xff222222);
+                findViewById(R.id.textView3).setBackgroundColor(0xff222222);
+                findViewById(R.id.textView2).setBackgroundColor(0xff575757);
+                findViewById(R.id.textView5).setBackgroundColor(0xff575757);
+            }
+
+            count[0]++; //incerement count
         }
     }
-    int count = 0;
+
+    //used to keep track of moves played, never greater than 9
+    private final int[] count = {0};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second_activity);
 
         ActionBar actionBar = getSupportActionBar();
+        assert actionBar != null;
         actionBar.hide();
 
         final Button topLeft = (Button) findViewById(R.id.TopLeft);
@@ -38,89 +61,29 @@ public class second_activity extends ActionBarActivity {
         final Button centerLeft = (Button) findViewById(R.id.CenterLeft);
         final Button centerMiddle = (Button) findViewById(R.id.CenterMiddle);
         final Button centerRight = (Button) findViewById(R.id.CenterRight);
-        final Button bottomeLeft = (Button) findViewById(R.id.BottomLeft);
+        final Button bottomLeft = (Button) findViewById(R.id.BottomLeft);
         final Button bottomMiddle = (Button) findViewById(R.id.BottomMiddle);
         final Button bottomRight = (Button) findViewById(R.id.BottomRight);
 
-        topLeft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setChar(topLeft, count);
-                count++;
-            }
-        });
+        TextView xName = (TextView) findViewById(R.id.textView2);
+        TextView xScore = (TextView) findViewById(R.id.textView5);
+        TextView oName = (TextView) findViewById(R.id.textView4);
+        TextView oScore = (TextView) findViewById(R.id.textView3);
 
-        topMiddle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setChar(topMiddle, count);
-                count++;
+        //this is the actual played game board used for calculations
+        final TTTBoard Board = new TTTBoard();
 
-            }
-        });
+        //same thing for all nine tiles, calls setChar if clicked
+        topLeft.setOnClickListener(v -> setChar(topLeft, count, 0, 0, Board));
+        topMiddle.setOnClickListener(v -> setChar(topMiddle, count, 1, 0, Board));
+        topRight.setOnClickListener(v -> setChar(topRight, count, 2, 0, Board));
+        centerLeft.setOnClickListener(v -> setChar(centerLeft, count, 0, 1, Board));
+        centerMiddle.setOnClickListener(v -> setChar(centerMiddle, count, 1, 1, Board));
+        centerRight.setOnClickListener(v -> setChar(centerRight, count, 2, 1, Board));
+        bottomLeft.setOnClickListener(v -> setChar(bottomLeft, count, 0, 2, Board));
+        bottomMiddle.setOnClickListener(v -> setChar(bottomMiddle, count, 1, 2, Board));
+        bottomRight.setOnClickListener(v -> setChar(bottomRight, count, 2, 2, Board));
 
-        topRight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setChar(topRight, count);
-                count++;
-
-            }
-        });
-
-        centerLeft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setChar(centerLeft, count);
-                count++;
-
-            }
-        });
-
-        centerMiddle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setChar(centerMiddle, count);
-                count++;
-
-            }
-        });
-
-        centerRight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setChar(centerRight, count);
-                count++;
-
-            }
-        });
-
-        bottomeLeft.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setChar(bottomeLeft, count);
-                count++;
-
-            }
-        });
-
-        bottomMiddle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setChar(bottomMiddle, count);
-                count++;
-
-            }
-        });
-
-        bottomRight.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                setChar(bottomRight, count);
-                count++;
-
-            }
-        });
     }
 
     @Override
