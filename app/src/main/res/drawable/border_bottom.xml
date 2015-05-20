@@ -6,13 +6,13 @@
         <shape>
             <padding android:top="0sp" android:left="10sp"
                 android:bottom="0sp" android:right="10sp"/>
-            <solid android:color="@string/secondary" />
+            <solid android:color="@color/secondary" />
         </shape>
     </item>
     <!-- This is the main color -->
     <item>
         <shape>
-            <solid android:color="@string/backGround" />
+            <solid android:color="@color/backGround" />
         </shape>
     </item>
 </layer-list>
