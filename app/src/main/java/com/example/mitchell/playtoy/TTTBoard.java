@@ -4,6 +4,7 @@ import android.content.res.ColorStateList;
 import android.content.res.Resources;
 import android.graphics.Color;
 import android.widget.Button;
+import android.widget.TextView;
 
 class TTTBoard {
 
@@ -32,6 +33,7 @@ class TTTBoard {
             modifying.setTextColor(Color.parseColor("#D51405"));
             modifying.setText("X");
             board[xCor][yCor] = 1;
+            
             if(isWinner(1)) System.exit(0);
         }
 

@@ -6,6 +6,9 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 //TODO running score of winners
 //TODO alternate who starts first
@@ -21,7 +24,22 @@ public class second_activity extends ActionBarActivity {
         //only sets tile as played if it hasn't been played before
         if(Board.isEmpty(xCor, yCor) && count[0] < 9){
             Board.setChar(modifying, count[0], xCor, yCor);
-            count[0]++;
+
+            //this alternates the highlight for whose turn it is
+            if(count[0]%2 == 0){
+                findViewById(R.id.textView2).setBackgroundColor(0xff222222);
+                findViewById(R.id.textView5).setBackgroundColor(0xff222222);
+                findViewById(R.id.textView4).setBackgroundColor(0xff575757);
+                findViewById(R.id.textView3).setBackgroundColor(0xff575757);
+            }
+            else{
+                findViewById(R.id.textView4).setBackgroundColor(0xff222222);
+                findViewById(R.id.textView3).setBackgroundColor(0xff222222);
+                findViewById(R.id.textView2).setBackgroundColor(0xff575757);
+                findViewById(R.id.textView5).setBackgroundColor(0xff575757);
+            }
+
+            count[0]++; //incerement count
         }
     }
 
@@ -46,6 +64,11 @@ public class second_activity extends ActionBarActivity {
         final Button bottomLeft = (Button) findViewById(R.id.BottomLeft);
         final Button bottomMiddle = (Button) findViewById(R.id.BottomMiddle);
         final Button bottomRight = (Button) findViewById(R.id.BottomRight);
+
+        TextView xName = (TextView) findViewById(R.id.textView2);
+        TextView xScore = (TextView) findViewById(R.id.textView5);
+        TextView oName = (TextView) findViewById(R.id.textView4);
+        TextView oScore = (TextView) findViewById(R.id.textView3);
 
         //this is the actual played game board used for calculations
         final TTTBoard Board = new TTTBoard();
