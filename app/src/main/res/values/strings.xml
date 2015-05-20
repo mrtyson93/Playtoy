@@ -4,4 +4,6 @@
     <string name="open_text">PlayToy App</string>
     <string name="title_activity_second_activity">second_activity</string>
     <string name="tictactoe">Tic-Tac-Toe</string>
+    <string name="secondary">#ff0e6e76</string>
+    <string name="backGround">#ff222222</string>
 </resources>
