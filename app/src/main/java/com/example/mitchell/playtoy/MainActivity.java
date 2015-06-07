@@ -32,28 +32,11 @@ public class MainActivity extends ActionBarActivity {
         Button open_Btn = (Button) findViewById(R.id.contBtn);
         final TextView testing = (TextView) findViewById(R.id.textView1);
 
-        //this sets the view to the second activity, should be done with this now
-        open_Btn.setOnClickListener(v -> {
-            //dialog box
-            final Dialog dialog = new Dialog(context);
-            dialog.setContentView(R.layout.dialogbox);
+        //does the popup to decide if you want to vs Comp or Human
+        open_Btn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this,decideVersion.class)));
 
-            Button Human = (Button) dialog.findViewById(R.id.vsHuman);
-            Button Comp  = (Button) dialog.findViewById(R.id.vsComp);
-
-            // if button is clicked, close the custom dialog
-            Human.setOnClickListener(v1 -> {
-                Intent i = new Intent(getApplicationContext(), second_activity.class);
-                startActivity(i);
-            });
-            Comp.setOnClickListener(v1 -> {
-                Intent i = new Intent(getApplicationContext(), second_activity.class);
-                startActivity(i);
-            });
-
-            dialog.show();
-        });
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
