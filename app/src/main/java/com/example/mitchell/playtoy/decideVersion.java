@@ -35,10 +35,10 @@ public class decideVersion extends Activity{
         ((TextView) findViewById(R.id.textView6)).setTextSize((int) (height*0.018));
 
         ((Button) findViewById(R.id.vHum)).setWidth((int) (width * 0.6));
-        ((Button) findViewById(R.id.vComp)).setWidth((int) (width*0.6));
+        ((Button) findViewById(R.id.vComp)).setWidth((int) (width * 0.6));
 
         ((Button) findViewById(R.id.vHum)).setHeight((int) (height * 0.1));
-        ((Button) findViewById(R.id.vComp)).setHeight((int) (height*0.1));
+        ((Button) findViewById(R.id.vComp)).setHeight((int) (height * 0.1));
 
         ((Button) findViewById(R.id.vHum)).setTextSize((int) (height * 0.01));
         ((Button) findViewById(R.id.vComp)).setTextSize((int) (height*0.01));

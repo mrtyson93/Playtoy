@@ -5,4 +5,6 @@
     <color name="play1">#D51405</color>
     <color name="play2">#ffffff</color>
     <color name="Gray">#ff575757</color>
+    <color name="Black">#000000</color>
+    <color name="offWhite">#ffb0b0b0</color>
 </resources>

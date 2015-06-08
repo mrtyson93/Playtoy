@@ -1,12 +1,11 @@
 package com.example.mitchell.playtoy;
 
-import android.content.res.ColorStateList;
-import android.content.res.Resources;
+import android.app.Activity;
+import android.content.Intent;
 import android.graphics.Color;
 import android.widget.Button;
-import android.widget.TextView;
 
-class TTTBoard {
+class TTTBoard extends Activity{
 
     //this is the board, 0 means nothings, 1 means X, 2 means O
     private final int[][] board = new int[3][3];
@@ -36,6 +35,7 @@ class TTTBoard {
 
     //if turn is "X" sets the game board and board in this class as so
     //same thing for "O", determined by count of game
+    //this returns true if there is a winner
     public boolean setChar(Button modifying, int[] count, int xCor, int yCor){
         if(count[0]%2 == 0 ){ //checks if x wins
             modifying.setTextColor(Color.parseColor("#D51405"));

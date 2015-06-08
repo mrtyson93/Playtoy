@@ -1,5 +1,6 @@
 package com.example.mitchell.playtoy;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
@@ -11,11 +12,8 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
-//TODO running score of winners
 //TODO alternate who starts first
-//TODO make it clear who's turn it is
 //TODO display for when there is a winner instead of restarting app
-//TODO human vs cpu popup when tic tac toe button is pressed(Brown)
 
 @SuppressWarnings("deprecation")
 public class second_activity extends ActionBarActivity {
@@ -48,7 +46,10 @@ public class second_activity extends ActionBarActivity {
 
         //if count[0] reaches nine it means there is either a draw or a winner
         //either way this denotes that a game is over
-        if(count[0] == 9) returning = true;
+        if(count[0] == 9 && returning == false){
+            count[0]++;
+            returning = true;
+        }
 
         return returning;
     }
@@ -150,6 +151,12 @@ public class second_activity extends ActionBarActivity {
 
     public void clearBoard(){
 
+        //this starts the popup for who was won, if count[0] = 10, then its a draw
+        if(count[0] == 10) startActivity(new Intent(getApplicationContext(), tttDraw.class));
+        else if(count[0]%2 == 1) startActivity(new Intent(getApplicationContext(), xWins.class));
+        else if(count[0]%2 == 0) startActivity(new Intent(getApplicationContext(), oWins.class));
+
+
         findViewById(R.id.textView4).setBackgroundColor(Color.parseColor("#ff222222"));
         findViewById(R.id.textView3).setBackgroundColor(Color.parseColor("#ff222222"));
         findViewById(R.id.textView2).setBackgroundColor(Color.parseColor("#ff575757"));
@@ -183,6 +190,8 @@ public class second_activity extends ActionBarActivity {
         xScore.setText("" + count[1]);
         oScore.setText("" + count[2]);
 
+
+        //resets play counter at 0
         count[0] = 0;
 
     }

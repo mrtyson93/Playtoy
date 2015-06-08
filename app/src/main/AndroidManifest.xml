@@ -25,6 +25,27 @@
         </activity>
 
         <activity
+            android:name=".xWins"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.simplePopup">
+        </activity>
+
+        <activity
+            android:name=".oWins"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.simplePopup">
+        </activity>
+
+        <activity
+            android:name="tttDraw"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.simplePopup">
+        </activity>
+
+
+
+
+        <activity
             android:name=".second_activity"
             android:label="@string/title_activity_second_activity"
             android:screenOrientation="portrait">
