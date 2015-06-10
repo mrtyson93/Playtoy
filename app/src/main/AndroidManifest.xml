@@ -42,11 +42,14 @@
             android:theme="@style/AppTheme.simplePopup">
         </activity>
 
-
-
-
         <activity
             android:name=".second_activity"
+            android:label="@string/title_activity_second_activity"
+            android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".vsComp"
             android:label="@string/title_activity_second_activity"
             android:screenOrientation="portrait">
         </activity>

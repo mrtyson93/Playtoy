@@ -89,4 +89,9 @@ class TTTBoard extends Activity{
 
     }
 
+    //returns an int so the computer can know if the space is theirs or their opponent's
+    public int isTaken(int xCor, int yCor) {
+        return board[xCor][yCor];
+    }
+
 }
