@@ -41,7 +41,7 @@ public class rateMonitor extends ActionBarActivity {
 
             rate[4]++;  //increment counter so we get rate after 3 button presses
 
-
+            //only calculate rate if more than two presses
             if(2 < rate[4]){
                 rate[0] = (rate[1] - rate[3]);
                 rate[5] = rate[0] % 33; //this is for remainder, determines half beat
@@ -65,7 +65,6 @@ public class rateMonitor extends ActionBarActivity {
                     rateText.setText("" + rate[0]);
                 }
             }
-
         });
 
     }
