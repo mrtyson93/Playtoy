@@ -23,9 +23,10 @@ public class rateMonitor extends ActionBarActivity {
         //variables needed
             //[0] is the rate, [1-3] are the times the button has been pressed, [4], is the press counter
             //[5] is for the 0.5
-        final long[] rate = {0,0,0,0,0,0};
+        final long[] rate = {0,0,0,0,0,0,0};
         Button rateBtn = (Button) findViewById(R.id.timeBtn);
         TextView rateText = (TextView) findViewById(R.id.rateText);
+        final float remainder[] = {0};
 
 
         //initiaize text
@@ -43,19 +44,20 @@ public class rateMonitor extends ActionBarActivity {
 
             //only calculate rate if more than three presses
             if(2 < rate[4]){
-                rate[0] = (rate[1] - rate[3]);
-                rate[5] = rate[0] % 33; //this is for remainder, determines half beat
-                rate[0] /= 33.3333;
-                Math.floor(rate[0]);
-                rate[0] += 0.5;
+                rate[0] = (rate[1] - rate[3]); //gets difference
+
+                remainder[0] = (float) 120000 / rate[0]; //gets the rate
+                rate[0] = (long) Math.floor(remainder[0]);
+
+                remainder[0] = (float) remainder[0] - rate[0];
 
                 //keeps the floor
-                if(rate[5] < 8){
+                if(remainder[0] < 0.25){
                     rateText.setText("" + rate[0]);
                 }
 
                 //adds the 0.5
-                else if(rate[5] < 25){
+                else if(remainder[0] < 0.75){
                     rateText.setText("" + rate[0] + ".5");
                 }
 
@@ -64,6 +66,7 @@ public class rateMonitor extends ActionBarActivity {
                     rate[0]++;
                     rateText.setText("" + rate[0]);
                 }
+
             }
 
         });
