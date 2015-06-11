@@ -10,13 +10,11 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 //TODO alternate who starts first
 //TODO display for when there is a winner instead of restarting app
 
 @SuppressWarnings("deprecation")
-public class second_activity extends ActionBarActivity {
+public class vsHuman extends ActionBarActivity {
 
     //returns true if there is a winner
     private boolean setChar(Button modifying, int[] count, int xCor, int yCor, TTTBoard Board){
@@ -61,7 +59,7 @@ public class second_activity extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second_activity);
+        setContentView(R.layout.activity_vshuman);
 
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;

@@ -45,7 +45,7 @@ public class decideVersion extends Activity{
 
 
         //starts intent to start the game
-        Human.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), second_activity.class)));
+        Human.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), vsHuman.class)));
         Comp.setOnClickListener(v -> startActivity(new Intent(getApplicationContext(), vsComp.class)));
 
     }

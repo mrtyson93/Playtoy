@@ -4,4 +4,7 @@
     <string name="open_text">PlayToy App</string>
     <string name="title_activity_second_activity">second_activity</string>
     <string name="tictactoe">Tic-Tac-Toe</string>
+    <string name="title_activity_rate_monitor">rateMonitor</string>
+    <string name="rateMonitor">Rate Monitor</string>
+    <string name="hello_world">Hello world!</string>
 </resources>

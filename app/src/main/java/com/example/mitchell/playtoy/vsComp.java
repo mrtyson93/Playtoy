@@ -112,7 +112,7 @@ public class vsComp extends ActionBarActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_second_activity);
+        setContentView(R.layout.activity_vshuman);
 
         ActionBar actionBar = getSupportActionBar();
         assert actionBar != null;

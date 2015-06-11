@@ -6,8 +6,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme"
-        >
+        android:theme="@style/AppTheme" >
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name" >
@@ -17,40 +16,39 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
         <activity
             android:name=".decideVersion"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.simplePopup">
+            android:theme="@style/AppTheme.simplePopup" >
         </activity>
-
         <activity
             android:name=".xWins"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.simplePopup">
+            android:theme="@style/AppTheme.simplePopup" >
         </activity>
-
         <activity
             android:name=".oWins"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.simplePopup">
+            android:theme="@style/AppTheme.simplePopup" >
         </activity>
-
         <activity
-            android:name="tttDraw"
+            android:name=".tttDraw"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.simplePopup">
+            android:theme="@style/AppTheme.simplePopup" >
         </activity>
-
         <activity
-            android:name=".second_activity"
+            android:name=".vsHuman"
             android:label="@string/title_activity_second_activity"
-            android:screenOrientation="portrait">
+            android:screenOrientation="portrait" >
         </activity>
-
         <activity
             android:name=".vsComp"
             android:label="@string/title_activity_second_activity"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".rateMonitor"
+            android:label="@string/title_activity_rate_monitor"
             android:screenOrientation="portrait">
         </activity>
     </application>

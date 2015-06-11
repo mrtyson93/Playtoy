@@ -30,10 +30,12 @@ public class MainActivity extends ActionBarActivity {
 
         //these make the buttons/textView = the ones from activity_main.xml
         Button open_Btn = (Button) findViewById(R.id.contBtn);
+        Button rate_Btn = (Button)  findViewById(R.id.rateBtn);
         final TextView testing = (TextView) findViewById(R.id.textView1);
 
         //does the popup to decide if you want to vs Comp or Human
         open_Btn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this,decideVersion.class)));
+        rate_Btn.setOnClickListener(v -> startActivity(new Intent(MainActivity.this, rateMonitor.class)));
 
     }
 
